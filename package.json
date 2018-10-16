@@ -1,0 +1,26 @@
+{
+  "name": "Scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scraper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dwillislc/content-scraper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dwillislc/content-scraper/issues"
+  },
+  "homepage": "https://github.com/dwillislc/content-scraper#readme",
+  "dependencies": {
+    "crawler": "^1.2.0",
+    "csv-writer": "^1.2.0",
+    "request": "^2.88.0",
+    "url": "^0.11.0"
+  }
+}
