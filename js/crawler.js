@@ -1,5 +1,6 @@
 const crawler = require("crawler"); 
 const url = require('url'); 
+const request = require('request'); 
 const writer = require("./csv_write.js");
 
 
@@ -14,6 +15,7 @@ var count = 0;
 /*****************************************
 Scrape URLs for Each Shirt on Main Webpage
 ******************************************/
+
 
 //Scraper of main shirt webpage to get shirt urls
 var mainPageScraper = new crawler({
@@ -100,18 +102,26 @@ var getAllDetails = function (length) {
 	}
 }
 
+//http://shirts4mike.com/shirts.php
 
 var buildShirtData = function () {
-	mainPageScraper.queue('http://shirts4mike.com/shirts.php');	
+	request('http://shirts4mike.com/shirts.php', function (error, response, body) {
+		if (error) {
+			console.log("Uh-oh, looks like there's something wrong with your link or network connection!");	
+		} 
+		else {
+			mainPageScraper.queue('http://shirts4mike.com/shirts.php');
+		}
+	})
 }
 
-buildShirtData();
+// buildShirtData();
 module.exports.buildShirtFile = buildShirtData; 
 
 
 
 
-
+ 
 
 
 
